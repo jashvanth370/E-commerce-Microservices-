@@ -73,6 +73,14 @@ export class AuthService {
     );
   }
 
+  getClientId(): number | null {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+
+    const decoded: any = jwtDecode(token);
+    return Number(decoded.id);
+  }
+
   logout() {
     localStorage.removeItem('token');
     this.currentUser.set(null);

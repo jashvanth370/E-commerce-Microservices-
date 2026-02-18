@@ -31,7 +31,7 @@ export class CartService {
             return [...items, {
                 productId: product.id,
                 productName: product.name,
-                price: product.originalPrice,
+                price: product.price,
                 quantity,
                 image: product.image
             }];

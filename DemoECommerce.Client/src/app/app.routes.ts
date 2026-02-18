@@ -11,6 +11,7 @@ import { AdminDashboard } from './pages/admin/admin-dashboard/admin-dashboard';
 import { ProductManagement } from './pages/admin/product-management/product-management';
 import { authGuard } from './services/auth/auth.guard';
 import { adminGuard } from './services/auth/admin.guard';
+import { PlaceOrderComponent } from './pages/place-order/place-order';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -18,6 +19,7 @@ export const routes: Routes = [
     { path: 'register', component: Register },
     { path: 'products', component: ProductList },
     { path: 'products/:id', component: ProductDetail },
+    { path: 'place-order/:id', component: PlaceOrderComponent},
     { path: 'cart', component: Cart, canActivate: [authGuard] },
     { path: 'orders', component: OrderList, canActivate: [authGuard] },
     { path: 'orders/:id', component: OrderDetail, canActivate: [authGuard] },

@@ -6,7 +6,7 @@
         <table class="w-full">
             <thead class="bg-gray-100">
                 <tr>
-                    <th class="p-3 text-left">Order ID</th>
+                    <th class="p-3 text-left">Order NO</th>
                     <th class="p-3 text-left">Date</th>
                     <th class="p-3 text-center">Qty</th>
                     <th>View</th>
@@ -16,9 +16,9 @@
             <tbody>
                 @for(order of orders(); track order.id) {
                 <tr class="border-b hover:bg-gray-50">
-                    <td class="p-3">#{{ order.id }}</td>
+                    <td class="p-3">{{ order.id }}</td>
                     <td class="p-3">{{ order.orderDate | date:'medium' }}</td>
-                    <td class="p-3 text-center">{{ order.purchaseQuantity }}</td>
+                    <td class="p-3 text-center">{{ order.purcheseQuantity }}</td>
                     <!-- <td class="p-3 text-center">
                   <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">Completed</span>
                </td> -->

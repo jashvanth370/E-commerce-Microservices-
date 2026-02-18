@@ -2,7 +2,7 @@ export interface OrderDTO {
     id: number;
     productId: number;
     clientId: number;
-    purchaseQuantity: number;
+    purcheseQuantity: number;
     orderDate: string;
 }
 
@@ -23,7 +23,7 @@ export interface OrderDetailDTO {
     address: string;
     telephoneNumber: string;
     productName: string;
-    purchaseQuantity: number;
+    purcheseQuantity: number;
     unitPrice: number;
     totalPrice: number;
     orderDate: string;

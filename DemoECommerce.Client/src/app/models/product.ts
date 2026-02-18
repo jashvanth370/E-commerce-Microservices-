@@ -2,7 +2,7 @@ export interface ProductDTO {
     id: number;
     name: string;
     description: string;
-    originalPrice: number;
+    price: number;
     newPrice?: number; // If applicable
     quantity: number;
     categoryId?: number;

@@ -74,13 +74,18 @@ export class ProductManagement {
     onSubmit() {
         if (this.productForm.invalid) return;
 
-        const product = this.productForm.value as ProductDTO;
+        const formValue = this.productForm.value;
 
-        // Ensure numbers are numbers
-        product.originalPrice = Number(product.originalPrice);
-        product.newPrice = Number(product.newPrice);
-        product.quantity = Number(product.quantity);
-        product.categoryId = Number(product.categoryId);
+        const product: ProductDTO = {
+            id: formValue.id ?? 0,
+            name: formValue.name ?? '',
+            description: formValue.description ?? '',
+            price: Number(formValue.originalPrice),   // FIX HERE
+            newPrice: formValue.newPrice ? Number(formValue.newPrice) : undefined,
+            quantity: Number(formValue.quantity),
+            categoryId: Number(formValue.categoryId),
+            image: formValue.image ?? ''
+        };
 
         if (this.isEditing()) {
             this.productService.updateProduct(product).subscribe({
@@ -95,8 +100,8 @@ export class ProductManagement {
                 }
             });
         } else {
-            // Create logic needs ID 0?
             product.id = 0;
+
             this.productService.createProduct(product).subscribe({
                 next: (res) => {
                     if (res.flag) {

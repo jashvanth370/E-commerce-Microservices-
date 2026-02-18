@@ -13,6 +13,10 @@ export class Navbar {
   authService = inject(AuthService);
 
   logout() {
-    this.authService.logout();
+    const confirmLogout = confirm('Are you sure you want to logout?');
+
+    if (confirmLogout) {
+      this.authService.logout();
+    }
   }
 }

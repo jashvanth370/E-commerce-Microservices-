@@ -20,10 +20,13 @@
                 </div>
 
                 <div class="flex items-center justify-between mt-auto">
-                    <span class="text-lg font-bold text-green-600">${{ product.originalPrice }}</span>
+                    <span class="text-lg font-bold text-green-600">${{ product.price }}</span>
                     <button (click)="addToCart(product)"
                         class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">
                         Add to Cart
+                    </button>
+                    <button [routerLink]="['/place-order', product.id]">
+                        Order Now
                     </button>
                 </div>
                 <a [routerLink]="['/products', product.id]"
