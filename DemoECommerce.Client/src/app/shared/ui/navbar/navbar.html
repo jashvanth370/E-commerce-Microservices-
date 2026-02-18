@@ -1,0 +1,36 @@
+<nav class="bg-gray-800 text-white p-4 shadow-md">
+  <div class="container mx-auto flex justify-between items-center">
+    <a routerLink="/" class="text-xl font-bold flex items-center gap-2">
+      🛍️ E-Shop
+    </a>
+    
+    <div class="hidden md:flex items-center gap-6">
+      <a routerLink="/" class="hover:text-blue-400 transition">Products</a>
+      
+      @if(authService.currentUser()) {
+        <a routerLink="/cart" class="hover:text-blue-400 transition">Cart</a>
+        <a routerLink="/orders" class="hover:text-blue-400 transition">My Orders</a>
+        
+        @if(authService.currentUser()?.role === 'Admin') {
+           <a routerLink="/admin" class="text-yellow-400 hover:text-yellow-300 transition">Admin Panel</a>
+        }
+      }
+    </div>
+
+    <div class="flex items-center gap-4">
+      @if(authService.currentUser()) {
+        <div class="text-sm text-gray-300">
+          Hi, {{ authService.currentUser()?.name }}
+        </div>
+        <button (click)="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition text-sm">
+          Logout
+        </button>
+      } @else {
+        <a routerLink="/login" class="text-gray-300 hover:text-white transition">Login</a>
+        <a routerLink="/register" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition text-sm">
+          Register
+        </a>
+      }
+    </div>
+  </div>
+</nav>
